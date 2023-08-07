@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body{
+            padding-top: 23vh;
+            text-align: center;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+        fieldset{
+            
+            align-content: center;
+            width: fit-content;
+            display:flex;
+            flex-direction: row;
+            background-color: rgb(238, 246, 243);
+            padding:40px;
+            box-shadow: 0px 5px 10px grey;
+
+        }
+        legend{
+            font-size: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+        input{
+            text-align: center;
+            padding:25px;
+            font-size:30px;
+            width:150px;
+            margin: 15px;
+            border-radius: 5px;
+            border:0px solid white;
+            box-shadow: 3px 3px 8px grey;
+        }
+        label{
+            font-size:30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        @media screen and (max-width:831px){
+            fieldset{
+                display:flex;
+                flex-direction: column;
+            }
+        }
+        @media screen and (max-width:613px){
+            fieldset{
+                display:flex;
+
+                flex-direction: column;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <fieldset>
+        <legend>Temperature Converter</legend>
+        <div>
+        <label for="celcius">Celcius</label>
+        <input type="number" name="celcius" id="cel" value="0">
+        </div>
+        <div>
+        <label for="fahrenheit">Fahrenheit</label>
+        <input type="number" name="fahrenheit" id="fah" value="32">
+        </div>
+    </fieldset>
+
+    <!--Script Starts-->
+    <script>
+        let c=document.getElementById('cel');
+        let f=document.getElementById('fah');
+        c.addEventListener('input',function(){
+            var ce=this.value;
+            var fe=ce * (9/5)  + 32;
+            if(!Number.isInteger(fe)){
+                fe=fe.toFixed(4);
+            }
+            f.value=fe;
+
+        })
+        f.addEventListener('input',function(){
+            var fe=this.value;
+            var ce=(fe-32)*(5/9);
+            if(!Number.isInteger(ce)){
+                ce=ce.toFixed(4);
+            }
+            c.value= ce;
+
+        })
+        </script>
+</body>
+</html>
